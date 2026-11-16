@@ -16,9 +16,10 @@ import fi.haagahelia.mjtea.model.SupplierRepository;
 import fi.haagahelia.mjtea.model.CategoryRepository;
 import org.springframework.security.access.prepost.PreAuthorize;
 
-@Controller
+@Controller // marks this class as handling web requests and returning HTML pages
 public class IngredientController {
-
+    // @Autowired lets Spring inject the repositories automatically, this is
+    // dependency injection
     @Autowired
     private IngredientRepository repository;
 
@@ -28,7 +29,7 @@ public class IngredientController {
     @Autowired
     private SupplierRepository supplierRepository;
 
-    // Trang danh sách — hỗ trợ tìm kiếm (search) và lọc (lowstock / expiring)
+    // Trang danh sách - hỗ trợ tìm kiếm (search) và lọc (lowstock / expiring)
     @GetMapping("/ingredientlist")
     public String ingredientList(
             @RequestParam(required = false) String search,
@@ -36,7 +37,7 @@ public class IngredientController {
             Model model) {
 
         List<Ingredient> ingredients;
-
+        // lấy dữ liệu, có search thì tìm, không thì lấy tất cả
         if (search != null && !search.isEmpty()) {
             // Tìm theo tên nguyên liệu HOẶC tên category
             ingredients = repository.findByNameContainingIgnoreCaseOrCategoryNameContainingIgnoreCase(search, search);
@@ -56,6 +57,7 @@ public class IngredientController {
                 .mapToDouble(i -> i.getQuantity() * i.getPrice())
                 .sum();
 
+        // đưa dữ liệu sang view
         model.addAttribute("ingredients", ingredients);
         model.addAttribute("totalValue", totalValue);
 

@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import fi.haagahelia.mjtea.model.Ingredient;
 import fi.haagahelia.mjtea.model.IngredientRepository;
 
-// REST controller — trả về JSON thay vì trang HTML
+// returns raw JSON data instead of an HTML page
+// this is the REST API, so other apps can fetch the data as JSON
 @RestController
 public class IngredientRestController {
 

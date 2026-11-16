@@ -17,11 +17,11 @@ public class WebSecurityConfig {
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/css/**").permitAll()
-                        .anyRequest().authenticated())
+                        .requestMatchers("/css/**").permitAll() // CSS ai cũng tải được
+                        .anyRequest().authenticated()) // còn lại phải đăng nhập
                 .formLogin(formlogin -> formlogin
-                        .defaultSuccessUrl("/ingredientlist", true).permitAll())
-                .logout(logout -> logout.permitAll())
+                        .defaultSuccessUrl("/ingredientlist", true).permitAll()) // login xong về trang kho
+                .logout(logout -> logout.permitAll()) // cho phép đăng xuất
                 // Tắt CSRF cho phép nút delete dạng link GET
                 .csrf(csrf -> csrf.disable());
         return http.build();

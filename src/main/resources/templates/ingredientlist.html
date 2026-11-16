@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>MJtea — Inventory</title>
+    <title>MJtea - Inventory</title>
     <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
     <link type="text/css" rel="stylesheet" href="/css/mjtea.css" th:href="@{/css/mjtea.css}" />
 </head>
@@ -11,8 +11,8 @@
 <body>
     <!-- Bảng hiệu quán -->
     <div class="mjtea-header">
-        <h1>☕ MJtea</h1>
-        <div class="tagline">Tea · Coffee · Pastry — Inventory</div>
+        <h1> MJtea</h1>
+        <div class="tagline">Tea · Coffee · Pastry - Inventory</div>
     </div>
 
     <div class="container">
@@ -20,7 +20,7 @@
 
             <!-- Dòng chào + đăng xuất -->
             <div class="topbar">
-                <span class="welcome">Welcome, <strong><span sec:authentication="name">Name</span></strong> 👋</span>
+                <span class="welcome">Welcome, <strong><span sec:authentication="name">Name!</span></strong></span>
                 <span>
                     <a th:href="@{/supplierlist}" class="btn btn-sm btn-primary">Manage suppliers</a>
                     <form th:action="@{/logout}" method="post" style="display:inline; margin:0">
@@ -37,11 +37,11 @@
                 </div>
                 <div class="stat-card warn-low">
                     <div class="num" th:text="${lowStockCount}">0</div>
-                    <div class="label">⚠ Low in stock</div>
+                    <div class="label"> Low in stock</div>
                 </div>
                 <div class="stat-card warn-exp">
                     <div class="num" th:text="${expiringCount}">0</div>
-                    <div class="label">⏱ Expiring soon</div>
+                    <div class="label"> Expiring soon</div>
                 </div>
             </div>
 
@@ -51,8 +51,8 @@
                     class="form-control d-inline-block" style="width:260px" />
                 <button type="submit" class="btn btn-primary btn-sm">Search</button>
                 <a th:href="@{/ingredientlist}" class="btn btn-secondary btn-sm">Show all</a>
-                <a th:href="@{/ingredientlist(filter='lowstock')}" class="btn btn-warning btn-sm">⚠ Low stock</a>
-                <a th:href="@{/ingredientlist(filter='expiring')}" class="btn btn-warning btn-sm">⏱ Expiring soon</a>
+                <a th:href="@{/ingredientlist(filter='lowstock')}" class="btn btn-warning btn-sm"> Low stock</a>
+                <a th:href="@{/ingredientlist(filter='expiring')}" class="btn btn-warning btn-sm"> Expiring soon</a>
             </form>
 
             <table class="table table-striped">

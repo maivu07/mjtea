@@ -18,7 +18,7 @@ public class AppUser {
     @Column(nullable = false, unique = true)
     private String username;
 
-    // password đã mã hóa BCrypt
+    // The password is stored as a BCrypt hash, never as plain text
     @Column(nullable = false)
     private String password;
 
