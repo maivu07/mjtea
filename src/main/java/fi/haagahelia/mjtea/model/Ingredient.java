@@ -7,9 +7,11 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 // Ingredient = một nguyên liệu trong kho (ví dụ: sữa, trà đen, bột mì, cốc nhựa)
 @Entity
+@Table(name = "mjtea_ingredient")
 public class Ingredient {
 
     // Khóa chính, tự tăng

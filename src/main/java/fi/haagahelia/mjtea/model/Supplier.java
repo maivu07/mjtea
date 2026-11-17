@@ -10,9 +10,11 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 // Supplier = nhà cung cấp nguyên liệu (ví dụ: hãng trà, hãng cà phê)
 @Entity
+@Table(name = "mjtea_supplier")
 public class Supplier {
 
     @Id

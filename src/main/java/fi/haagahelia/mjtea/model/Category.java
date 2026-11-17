@@ -10,10 +10,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 // Category = loại nguyên liệu (Tea, Coffee, Bakery, Dairy, Packaging...)
 // @Entity đánh dấu đây là một bảng trong database
 @Entity
+@Table(name = "mjtea_category")
 public class Category {
     // Khóa chính, database tự tăng id (1, 2, 3...)
     @Id // ← id là khóa chính (mỗi dòng 1 id duy nhất)

@@ -5,9 +5,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 // Entity lưu người dùng đăng nhập của ứng dụng
 @Entity
+@Table(name = "mjtea_user")
 public class AppUser {
 
     @Id
